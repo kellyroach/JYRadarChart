@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,37 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JYRadarChartSwiftDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YlX-Z2-8i0" customClass="JYRadarChart" customModule="JYRadarChartSwiftDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="323.5"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvq-Eo-Vyd" customClass="JYRadarChart" customModule="JYRadarChartSwiftDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rvq-Eo-Vyd" firstAttribute="top" secondItem="YlX-Z2-8i0" secondAttribute="bottom" id="6p2-lx-UNI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rvq-Eo-Vyd" secondAttribute="bottom" id="BhV-pW-qur"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rvq-Eo-Vyd" secondAttribute="trailing" id="DAN-wh-U7x"/>
+                            <constraint firstItem="YlX-Z2-8i0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hgd-8W-W4q"/>
+                            <constraint firstItem="Rvq-Eo-Vyd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pa8-DF-QDF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YlX-Z2-8i0" secondAttribute="trailing" id="ZsW-Ne-qSC"/>
+                            <constraint firstItem="YlX-Z2-8i0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tfy-lB-DhN"/>
+                            <constraint firstItem="Rvq-Eo-Vyd" firstAttribute="height" secondItem="YlX-Z2-8i0" secondAttribute="height" id="vKc-HC-4rT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="radar1" destination="YlX-Z2-8i0" id="R0a-j6-5BI"/>
+                        <outlet property="radar2" destination="Rvq-Eo-Vyd" id="6nB-kv-fOc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

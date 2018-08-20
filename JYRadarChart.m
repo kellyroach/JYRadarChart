@@ -44,8 +44,6 @@
 - (void)setDefaultValues {
     self.backgroundColor = [UIColor whiteColor];
     _maxValue = 100.0;
-    _centerPoint = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
-    _r = MIN(self.frame.size.width / 2 - PADDING, self.frame.size.height / 2 - PADDING);
     _steps = 1;
     _drawPoints = NO;
     _pointsDiameter = 8;
@@ -129,6 +127,8 @@
 }
 
 - (void)layoutSubviews {
+    _centerPoint = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+    _r = MIN(self.frame.size.width / 2 - PADDING, self.frame.size.height / 2 - PADDING);
     [self.legendView sizeToFit];
     CGRect r = self.legendView.frame;
     r.origin.x = self.frame.size.width - self.legendView.frame.size.width - LEGEND_PADDING;

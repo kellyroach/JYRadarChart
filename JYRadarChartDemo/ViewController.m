@@ -9,50 +9,39 @@
 #import "ViewController.h"
 #import "JYRadarChart.h"
 
-@interface ViewController () {
-	JYRadarChart *p;
-	JYRadarChart *p2;
-}
-
+@interface ViewController ()
+@property (weak, nonatomic) IBOutlet JYRadarChart *radar1;
+@property (weak, nonatomic) IBOutlet JYRadarChart *radar2;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
-	p = [[JYRadarChart alloc] initWithFrame:CGRectMake(30, 20, 200, 200)];
-
+    // Set up _radar1
 	NSArray *a1 = @[@(81), @(97), @(87), @(60), @(65), @(77)];
 	NSArray *a2 = @[@(91), @(87), @(33), @(77), @(78), @(96)];
-	p.dataSeries = @[a1, a2];
-	p.steps = 1;
-	p.showStepText = YES;
-	p.backgroundColor = [UIColor whiteColor];
-	p.r = 60;
-	p.minValue = 20;
-	p.maxValue = 120;
-	p.fillArea = YES;
-	p.colorOpacity = 0.7;
-    p.backgroundFillColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-	p.attributes = @[@"Attack", @"Defense", @"Speed", @"HP", @"MP", @"IQ"];
-	p.showLegend = YES;
-	[p setTitles:@[@"archer", @"footman"]];
-	[p setColors:@[[UIColor yellowColor], [UIColor purpleColor]]];
-	[self.view addSubview:p];
-
-
+	_radar1.dataSeries = @[a1, a2];
+	_radar1.steps = 1;
+	_radar1.showStepText = YES;
+	_radar1.backgroundColor = [UIColor whiteColor];
+	_radar1.r = 60;
+	_radar1.minValue = 20;
+	_radar1.maxValue = 120;
+	_radar1.fillArea = YES;
+	_radar1.colorOpacity = 0.7;
+    _radar1.backgroundFillColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+	_radar1.attributes = @[@"Attack", @"Defense", @"Speed", @"HP", @"MP", @"IQ"];
+	_radar1.showLegend = YES;
+	[_radar1 setTitles:@[@"archer", @"footman"]];
+	[_radar1 setColors:@[[UIColor yellowColor], [UIColor purpleColor]]];
 	[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateData) userInfo:nil repeats:YES];
-
-
-
-	p2 = [[JYRadarChart alloc] initWithFrame:CGRectMake(10, 220, 280, 200)];
-	p2.centerPoint = CGPointMake(130, 100);
-	p2.showLegend = YES;
-    p2.backgroundFillColor = [UIColor whiteColor];
-	[p2 setTitles:@[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j"]];
-	p2.drawPoints = YES;
-	p2.attributes = @[@"Price", @"Value", @"Pressure", @"Height", @"Weight", @"Grade",
+    // Set up _radar2
+	_radar2.showLegend = YES;
+    _radar2.backgroundFillColor = [UIColor whiteColor];
+	[_radar2 setTitles:@[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j"]];
+	_radar2.drawPoints = YES;
+	_radar2.attributes = @[@"Price", @"Value", @"Pressure", @"Height", @"Weight", @"Grade",
 	                  @"Volume", @"Length", @"Size", @"Padding", @"Pages", @"HAHAHA"];
 	NSArray *b1 = @[@(61), @(97), @(87), @(60), @(85), @(77), @(73), @(74), @(53), @(82), @(65), @(61)];
 	NSArray *b2 = @[@(91), @(87), @(43), @(77), @(78), @(96), @(51), @(65), @(77), @(55), @(84), @(91)];
@@ -64,10 +53,9 @@
 	NSArray *b8 = @[@(91), @(84), @(43), @(67), @(78), @(96), @(47), @(55), @(67), @(55), @(51), @(91)];
 	NSArray *b9 = @[@(38), @(85), @(77), @(93), @(74), @(53), @(82), @(97), @(87), @(60), @(65), @(38)];
 	NSArray *b10 = @[@(31), @(87), @(43), @(37), @(78), @(96), @(51), @(65), @(17), @(55), @(54), @(31)];
-	p2.dataSeries = @[b1, b2, b3, b4, b5, b6, b7, b8, b9, b10];
-	p2.steps = 2;
-	p2.backgroundColor = [UIColor grayColor];
-	[self.view addSubview:p2];
+	_radar2.dataSeries = @[b1, b2, b3, b4, b5, b6, b7, b8, b9, b10];
+	_radar2.steps = 2;
+	_radar2.backgroundColor = [UIColor grayColor];
 }
 
 - (void)updateData {
@@ -83,13 +71,13 @@
 		c[i] = [NSNumber numberWithInt:arc4random() % 60 + 60];
 	}
 
-	p.dataSeries = @[a, b, c];
-	p.steps = arc4random() % 6;
-	p.fillArea = arc4random() % 2 ? YES : NO;
-	p.drawPoints = arc4random() % 2 ? YES : NO;
-	p.showStepText = arc4random() % 2 ? YES : NO;
-	[p setTitles:@[@"iPhone", @"pizza", @"hard drive"]];
-	[p setNeedsDisplay];
+	_radar1.dataSeries = @[a, b, c];
+	_radar1.steps = arc4random() % 6;
+	_radar1.fillArea = arc4random() % 2 ? YES : NO;
+	_radar1.drawPoints = arc4random() % 2 ? YES : NO;
+	_radar1.showStepText = arc4random() % 2 ? YES : NO;
+	[_radar1 setTitles:@[@"iPhone", @"pizza", @"hard drive"]];
+	[_radar1 setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning {

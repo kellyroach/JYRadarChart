@@ -138,6 +138,9 @@ class JYRadarChart: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        centerPoint = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
+        self.r = min(self.frame.size.width / 2 - self.padding, self.frame.size.height / 2 - self.padding)
+
         legendView.sizeToFit()
         var r: CGRect = legendView.frame
         r.origin.x = frame.size.width - legendView.frame.size.width - legendPadding
