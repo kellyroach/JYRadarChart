@@ -139,7 +139,7 @@
 
 - (void)drawRect:(CGRect)rect {
     NSArray *colors = [self.legendView.colors copy];
-    CGFloat radPerV = M_PI * 2 / _numOfV;
+    CGFloat radPerV;
     
     if (_clockwise) {
         radPerV =  - (M_PI * 2 / _numOfV);
@@ -165,29 +165,18 @@
         CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
         CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
 
-        if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 70000) {
-            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-            [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
-            [paragraphStyle setAlignment:NSTextAlignmentCenter];
-
-            NSDictionary *attributes = @{ NSFontAttributeName: self.scaleFont,
-                                          NSParagraphStyleAttributeName: paragraphStyle };
-
-            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
-                                                 legendCenter.y - height / 2.0,
-                                                 width,
-                                                 height)
-                       withAttributes:attributes];
-        }
-        else {
-            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
-                                                 legendCenter.y - height / 2.0,
-                                                 width,
-                                                 height)
-                             withFont:self.scaleFont
-                        lineBreakMode:NSLineBreakByClipping
-                            alignment:NSTextAlignmentCenter];
-        }
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
+        [paragraphStyle setAlignment:NSTextAlignmentCenter];
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: self.scaleFont,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
+                                             legendCenter.y - height / 2.0,
+                                             width,
+                                             height)
+                   withAttributes:attributes];
     }
 
     //draw background fill color

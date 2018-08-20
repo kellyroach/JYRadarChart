@@ -101,7 +101,7 @@ class JYLegendView: UIView {
             
             UIColor.black.set()
             
-            title.draw(at: CGPoint(x: colorPadding + padding, y: y + padding), withAttributes: [NSFontAttributeName: legendFont])
+            title.draw(at: CGPoint(x: colorPadding + padding, y: y + padding), withAttributes: [NSAttributedStringKey.font: legendFont])
             
             y = y + legendFont.lineHeight
         }
@@ -113,7 +113,7 @@ class JYLegendView: UIView {
         var width: CGFloat = 0
         
         titles.forEach {
-            let size: CGSize = $0.size(attributes: [NSFontAttributeName: legendFont])
+            let size: CGSize = $0.size(withAttributes: [NSAttributedStringKey.font: legendFont])
             width = max(width, size.width)
         }
         

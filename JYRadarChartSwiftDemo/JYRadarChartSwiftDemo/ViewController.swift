@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         self.view.addSubview(p2)
     }
     
-    func updateData() {
+    @objc func updateData() {
         let n = 6
         var a = Array<Double>()
         var b = Array<Double>()

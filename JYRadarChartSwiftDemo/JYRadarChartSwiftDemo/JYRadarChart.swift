@@ -165,7 +165,7 @@ class JYRadarChart: UIView {
             let pointOnEdge: CGPoint = CGPoint(x: centerPoint.x - r * sin(CGFloat(index) * radPerV),
                                                y: centerPoint.y - r * cos(CGFloat(index) * radPerV))
             
-            let attributeTextSize: CGSize = attributeName.size(attributes: [NSFontAttributeName: scaleFont])
+            let attributeTextSize: CGSize = attributeName.size(withAttributes: [NSAttributedStringKey.font: scaleFont])
             let width: CGFloat = attributeTextSize.width
             
             var xOffset: CGFloat = width / 2.0 + padding
@@ -193,10 +193,10 @@ class JYRadarChart: UIView {
                 fontColor = fontColors[index]
             }
             
-            var attributes: [String: Any] = [ NSFontAttributeName: scaleFont,
-                                              NSParagraphStyleAttributeName: paragraphStyle,
-                                              NSForegroundColorAttributeName: fontColor ]
-            
+            var attributes: [NSAttributedStringKey: Any] = [ NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue): scaleFont,
+                                                             NSAttributedStringKey(rawValue: NSAttributedStringKey.paragraphStyle.rawValue): paragraphStyle,
+                                                             NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): fontColor ]
+
             attributeName.draw(in: CGRect(x: legendCenter.x - width / 2.0,
                                           y: legendCenter.y - height / 2.0,
                                           width: width,
@@ -204,9 +204,9 @@ class JYRadarChart: UIView {
                                withAttributes: attributes)
             
             if isShowTotal {
-                attributes = [ NSFontAttributeName: scaleFont,
-                               NSParagraphStyleAttributeName: paragraphStyle,
-                               NSForegroundColorAttributeName: UIColor.black ]
+                attributes = [ NSAttributedStringKey.font: scaleFont,
+                               NSAttributedStringKey.paragraphStyle: paragraphStyle,
+                               NSAttributedStringKey.foregroundColor: UIColor.black ]
                 
                 totalTitle.draw(in: CGRect(x: legendCenter.x - width / 2.0,
                                            y: (legendCenter.y - height / 2.0) + height,
@@ -275,8 +275,9 @@ class JYRadarChart: UIView {
                         context?.move(to: CGPoint(x: centerPoint.x,
                                                   y: centerPoint.y - (value - minValue) / (maxValue - minValue) * r))
                     } else {
-                        context?.addLine(to: CGPoint(x: centerPoint.x - (value - minValue) / (maxValue - minValue) * r * sin(CGFloat(index) * radPerV),
-                                                     y: centerPoint.y - (value - minValue) / (maxValue - minValue) * r * cos(CGFloat(index) * radPerV)))
+                        let x = centerPoint.x - (value - minValue) / (maxValue - minValue) * r * sin(CGFloat(index) * radPerV)
+                        let y = centerPoint.y - (value - minValue) / (maxValue - minValue) * r * cos(CGFloat(index) * radPerV)
+                        context?.addLine(to: CGPoint(x: x, y: y))
                     }
                 }
                 
@@ -317,7 +318,7 @@ class JYRadarChart: UIView {
                                              y: centerPoint.y - r * CGFloat(step) / CGFloat(steps),
                                              width: 20,
                                              height: 10),
-                                  withAttributes: [ NSFontAttributeName: scaleFont ])
+                                  withAttributes: [ NSAttributedStringKey.font: scaleFont ])
             }
             
         }
