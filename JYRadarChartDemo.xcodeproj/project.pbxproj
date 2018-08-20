@@ -15,6 +15,7 @@
 		E1C76F8F212A782600406FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C76F8E212A782600406FD3 /* Assets.xcassets */; };
 		E1C76F92212A782600406FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C76F90212A782600406FD3 /* LaunchScreen.storyboard */; };
 		E1C76F95212A782600406FD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C76F94212A782600406FD3 /* main.m */; };
+		E1F044F2212B4E1D0019B6BD /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F044F1212B4E1D0019B6BD /* LaunchImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E1C76F91212A782600406FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1C76F93212A782600406FD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1C76F94212A782600406FD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E1F044F1212B4E1D0019B6BD /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +72,14 @@
 			children = (
 				E1C76F85212A782500406FD3 /* AppDelegate.h */,
 				E1C76F86212A782500406FD3 /* AppDelegate.m */,
+				E1C76F8E212A782600406FD3 /* Assets.xcassets */,
+				E1C76F93212A782600406FD3 /* Info.plist */,
+				E1F044F1212B4E1D0019B6BD /* LaunchImage.png */,
+				E1C76F90212A782600406FD3 /* LaunchScreen.storyboard */,
+				E1C76F94212A782600406FD3 /* main.m */,
+				E1C76F8B212A782500406FD3 /* Main.storyboard */,
 				E1C76F88212A782500406FD3 /* ViewController.h */,
 				E1C76F89212A782500406FD3 /* ViewController.m */,
-				E1C76F8B212A782500406FD3 /* Main.storyboard */,
-				E1C76F8E212A782600406FD3 /* Assets.xcassets */,
-				E1C76F90212A782600406FD3 /* LaunchScreen.storyboard */,
-				E1C76F93212A782600406FD3 /* Info.plist */,
-				E1C76F94212A782600406FD3 /* main.m */,
 			);
 			path = JYRadarChartDemo;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F044F2212B4E1D0019B6BD /* LaunchImage.png in Resources */,
 				E1C76F92212A782600406FD3 /* LaunchScreen.storyboard in Resources */,
 				E1C76F8F212A782600406FD3 /* Assets.xcassets in Resources */,
 				E1C76F8D212A782500406FD3 /* Main.storyboard in Resources */,

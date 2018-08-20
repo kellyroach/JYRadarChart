@@ -14,6 +14,7 @@
 		E1038A9D212A78FF002DC8DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1038A9B212A78FF002DC8DF /* LaunchScreen.storyboard */; };
 		E1B627D6212A7EEC00EDC692 /* JYRadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B627D4212A7EEC00EDC692 /* JYRadarChart.swift */; };
 		E1B627D7212A7EEC00EDC692 /* JYLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B627D5212A7EEC00EDC692 /* JYLegendView.swift */; };
+		E1D716DA212B4F3300D2DE0D /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D716D9212B4F3300D2DE0D /* LaunchImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E1038A9E212A78FF002DC8DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1B627D4212A7EEC00EDC692 /* JYRadarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYRadarChart.swift; sourceTree = "<group>"; };
 		E1B627D5212A7EEC00EDC692 /* JYLegendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYLegendView.swift; sourceTree = "<group>"; };
+		E1D716D9212B4F3300D2DE0D /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E1038A9E212A78FF002DC8DF /* Info.plist */,
 				E1B627D5212A7EEC00EDC692 /* JYLegendView.swift */,
 				E1B627D4212A7EEC00EDC692 /* JYRadarChart.swift */,
+				E1D716D9212B4F3300D2DE0D /* LaunchImage.png */,
 				E1038A9B212A78FF002DC8DF /* LaunchScreen.storyboard */,
 				E1038A96212A78FE002DC8DF /* Main.storyboard */,
 				E1038A94212A78FE002DC8DF /* ViewController.swift */,
@@ -129,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D716DA212B4F3300D2DE0D /* LaunchImage.png in Resources */,
 				E1038A9D212A78FF002DC8DF /* LaunchScreen.storyboard in Resources */,
 				E1038A9A212A78FF002DC8DF /* Assets.xcassets in Resources */,
 				E1038A98212A78FE002DC8DF /* Main.storyboard in Resources */,
