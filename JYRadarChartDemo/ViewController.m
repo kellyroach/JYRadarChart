@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
     // Set up _radar1
 	NSArray *a1 = @[@(81), @(97), @(87), @(60), @(65), @(77)];
 	NSArray *a2 = @[@(91), @(87), @(33), @(77), @(78), @(96)];
@@ -35,7 +36,10 @@
 	_radar1.showLegend = YES;
 	[_radar1 setTitles:@[@"archer", @"footman"]];
 	[_radar1 setColors:@[[UIColor yellowColor], [UIColor purpleColor]]];
-	[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateData) userInfo:nil repeats:YES];
+    [self updateRadar1];
+    [_radar1.layer displayIfNeeded];
+	[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateRadar1) userInfo:nil repeats:YES];
+    
     // Set up _radar2
 	_radar2.showLegend = YES;
     _radar2.backgroundFillColor = [UIColor whiteColor];
@@ -58,19 +62,40 @@
 	_radar2.backgroundColor = [UIColor grayColor];
 }
 
-- (void)updateData {
+-(CGFloat)randomFloat {
+    // Random float in [0,1]
+    return (CGFloat)(arc4random())/(CGFloat)(UINT32_MAX);
+}
+
+-(void)updateRadar1 {
+    [self updateRadar1RadiusAndCenter];
+    [self updateRadar1Data];
+}
+
+-(void)updateRadar1RadiusAndCenter {
+    // Assign _radar1.r and _radar1.centerPoint reasonable random values.
+    CGFloat PADDING=13;
+    CGFloat defaultR=MIN(_radar1.frame.size.width / 2 - PADDING, _radar1.frame.size.height / 2 - PADDING);
+    _radar1.r = 0.5*(1.0+[self randomFloat])*defaultR;
+    CGFloat minX=_radar1.r;
+    CGFloat maxX=_radar1.bounds.size.width-_radar1.r;
+    CGFloat minY=_radar1.r;
+    CGFloat maxY=_radar1.bounds.size.height-_radar1.r;
+    CGFloat x=minX+[self randomFloat]*(maxX-minX);
+    CGFloat y=minY+[self randomFloat]*(maxY-minY);
+    _radar1.centerPoint=CGPointMake(x,y);
+}
+
+-(void)updateRadar1Data {
 	int n = 7;
 	NSMutableArray *a = [NSMutableArray array];
 	NSMutableArray *b = [NSMutableArray array];
 	NSMutableArray *c = [NSMutableArray array];
-
-
 	for (int i = 0; i < n - 1; i++) {
 		a[i] = [NSNumber numberWithInt:arc4random() % 40 + 80];
 		b[i] = [NSNumber numberWithInt:arc4random() % 50 + 70];
 		c[i] = [NSNumber numberWithInt:arc4random() % 60 + 60];
 	}
-
 	_radar1.dataSeries = @[a, b, c];
 	_radar1.steps = arc4random() % 6;
 	_radar1.fillArea = arc4random() % 2 ? YES : NO;
